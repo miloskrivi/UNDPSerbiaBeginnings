@@ -1,0 +1,98 @@
+﻿@model UNDPSerbia.ViewModels.EmployeeFormViewModel
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+@using (Html.BeginForm("Create", "Employees"))
+{
+    <div class="form-group">
+        @Html.LabelFor(e=> e.Employee.FirstName)
+        @Html.TextBoxFor(e => e.Employee.FirstName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.LastName)
+        @Html.TextBoxFor(e => e.Employee.LastName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.DateOfBirth)
+        @Html.TextBoxFor(e => e.Employee.DateOfBirth, "{0:d MMM yyyy}", new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.Title)
+        @Html.TextBoxFor(e => e.Employee.Title, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.IndexNo)
+        @Html.TextBoxFor(e => e.Employee.IndexNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.LPNumber)
+        @Html.TextBoxFor(e => e.Employee.LPNumber, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.LPValidity)
+        @Html.TextBoxFor(e => e.Employee.LPValidity, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.ExtensionNo)
+        @Html.TextBoxFor(e => e.Employee.ExtensionNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.GMCID)
+        @Html.TextBoxFor(e => e.Employee.GMCID, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.VanBredaID)
+        @Html.TextBoxFor(e => e.Employee.VanBredaID, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.DirectBusinessPhone)
+        @Html.TextBoxFor(e => e.Employee.DirectBusinessPhone, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.BusinessMobile)
+        @Html.TextBoxFor(e => e.Employee.BusinessMobile, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.Email)
+        @Html.TextBoxFor(e => e.Employee.Email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.Username)
+        @Html.TextBoxFor(e => e.Employee.Username, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.Supervisor)
+        @Html.TextBoxFor(e => e.Employee.Supervisor, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.Nationality)
+        @Html.TextBoxFor(e => e.Employee.Nationality, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.PassportNo)
+        @Html.TextBoxFor(e => e.Employee.PassportNo, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.BloodType)
+        @Html.TextBoxFor(e => e.Employee.BloodType, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.HomeAddress)
+        @Html.TextBoxFor(e => e.Employee.HomeAddress, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.HomePhone)
+        @Html.TextBoxFor(e => e.Employee.HomePhone, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Employee.PrivateMobile)
+        @Html.TextBoxFor(e => e.Employee.PrivateMobile, new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(e => e.Employee.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+

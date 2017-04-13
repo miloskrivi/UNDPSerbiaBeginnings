@@ -1,0 +1,18 @@
+﻿@model UNDPSerbia.Models.Employee
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<h2>@Model.FirstName @Model.LastName</h2>
+ <ul>
+    
+    <li>@Model.Title</li>
+    
+    <li>@Model.LastUpdate @Model.LastUpdatedBy @Model.LastPersonalUpdate</li>
+    
+    <li>@Model.Email</li>
+    
+</ul>
