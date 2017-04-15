@@ -270,6 +270,7 @@
     <Content Include="Views\Employees\Index.cshtml" />
     <Content Include="Views\Employees\EmployeeForm.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Shared\_NavBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
