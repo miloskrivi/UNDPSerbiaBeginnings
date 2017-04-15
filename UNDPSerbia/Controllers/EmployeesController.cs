@@ -21,17 +21,17 @@ namespace UNDPSerbia.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Employee employee)
+        public ActionResult Save(Employee employee)
         {
-            if (!ModelState.IsValid)
+            /*if (!ModelState.IsValid)
             {
                 var viewModel = new EmployeeFormViewModel
                 {
                     Employee = employee
                 };
 
-                return View("CustomerForm", viewModel);
-            }
+                return View("EmployeeForm", viewModel);
+            }*/
 
             if (employee.Id == 0)
             {
