@@ -25,7 +25,7 @@ namespace UNDPSerbia.Models
 
         [Required]
         [StringLength(50)]
-        [Display(Name = "Title*")]
+        [Display(Name = "Work Position (Title)*")]
         public string Title { get; set; }
 
         [StringLength(6)]

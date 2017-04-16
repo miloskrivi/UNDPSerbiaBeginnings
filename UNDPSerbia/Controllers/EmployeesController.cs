@@ -21,9 +21,10 @@ namespace UNDPSerbia.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Employee employee)
         {
-            /*if (!ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
                 var viewModel = new EmployeeFormViewModel
                 {
@@ -31,7 +32,7 @@ namespace UNDPSerbia.Controllers
                 };
 
                 return View("EmployeeForm", viewModel);
-            }*/
+            }
 
             if (employee.Id == 0)
             {
@@ -108,7 +109,10 @@ namespace UNDPSerbia.Controllers
 
         public ActionResult New()
         {
-            var viewModel = new EmployeeFormViewModel { };
+            var viewModel = new EmployeeFormViewModel
+            {
+                Employee = new Employee()
+            };
             return View("EmployeeForm", viewModel);
         }
 
