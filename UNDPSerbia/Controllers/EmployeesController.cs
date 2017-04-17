@@ -119,14 +119,7 @@ namespace UNDPSerbia.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            var employees = _context.Employees.ToList();
-
-            var viewModel = new EmployeesListViewModel
-            {
-                Employees = employees
-            };
-
-            return View(viewModel);
+            return View();
         }
     }
 }
