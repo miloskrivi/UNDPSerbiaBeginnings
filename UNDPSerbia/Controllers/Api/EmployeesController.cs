@@ -18,13 +18,14 @@ namespace UNDPSerbia.Controllers.Api
             _context = new ApplicationDbContext();
         }
         // GET /api/employees
+        
         public IEnumerable<EmployeeDto> GetEmployees()
         {
             return _context.Employees.ToList().Select(Mapper.Map<Employee, EmployeeDto>);
         }
 
         // GET /api/employees/1
-
+        
         public IHttpActionResult GetEmployee(int id)
         {
             var employee = _context.Employees.SingleOrDefault(e => e.Id == id);
@@ -36,6 +37,7 @@ namespace UNDPSerbia.Controllers.Api
         }
 
         // POST /api/employees
+        [Authorize(Roles = RoleName.CanManageEmployees)]
         [HttpPost]
         public IHttpActionResult CreateEmployee(EmployeeDto employeeDto)
         {
@@ -52,6 +54,7 @@ namespace UNDPSerbia.Controllers.Api
         }
 
         // PUT /api/employees/1
+        [Authorize(Roles = RoleName.CanManageEmployees)]
         [HttpPut]
         public void UpdateEmployee(int id, EmployeeDto employeeDto)
         {
@@ -90,6 +93,7 @@ namespace UNDPSerbia.Controllers.Api
         }
 
         // DELETE /api/employees/1
+        [Authorize(Roles = RoleName.CanManageEmployees)]
         [HttpDelete]
         public void DeleteEmployee (int id)
         {

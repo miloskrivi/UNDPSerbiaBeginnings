@@ -20,6 +20,7 @@ namespace UNDPSerbia.Controllers
             _context.Dispose();
         }
 
+        [Authorize(Roles = RoleName.CanManageEmployees)]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Save(Employee employee)
@@ -70,7 +71,7 @@ namespace UNDPSerbia.Controllers
             _context.SaveChanges();
             return RedirectToAction("Index", "Employees");
         }
-
+        [Authorize(Roles = RoleName.CanManageEmployees)]
         public ActionResult Details (int id)
         {
             var employee = _context.Employees.SingleOrDefault(e => e.Id == id);
@@ -91,7 +92,7 @@ namespace UNDPSerbia.Controllers
             };
             return View("New", viewModel);
         }*/
-
+        [Authorize(Roles = RoleName.CanManageEmployees)]
         public ActionResult Edit(int id)
         {
             var employee = _context.Employees.SingleOrDefault(e => e.Id == id);
@@ -107,6 +108,7 @@ namespace UNDPSerbia.Controllers
             return View("EmployeeForm", viewModel);
         }
 
+        [Authorize(Roles = RoleName.CanManageEmployees)]
         public ActionResult New()
         {
             var viewModel = new EmployeeFormViewModel
@@ -119,7 +121,10 @@ namespace UNDPSerbia.Controllers
         // GET: Employees
         public ActionResult Index()
         {
-            return View();
+            if (User.IsInRole(RoleName.CanManageEmployees))
+                return View("List");
+
+            return View("readOnlyList");
         }
     }
 }

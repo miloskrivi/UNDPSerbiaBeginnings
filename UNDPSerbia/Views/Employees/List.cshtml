@@ -1,10 +1,13 @@
 ﻿@model UNDPSerbia.ViewModels.EmployeesListViewModel
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Employees List</h2>
+<p>
+    @Html.ActionLink("New Employee", "New", "Employees", null, new { @class = "btn btn-primary" })
+</p>
 <table id="employees" class="table table-bordered table-hover">
     <thead>
         <tr>

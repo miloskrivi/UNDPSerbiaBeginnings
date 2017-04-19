@@ -1,0 +1,69 @@
+﻿@model UNDPSerbia.ViewModels.EmployeesListViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employees List</h2>
+<table id="employees" class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Date of Birth</th>
+            <th>Title</th>            
+        </tr>
+    </thead>
+    <tbody>       
+    </tbody>
+</table>
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            var table = $("#employees").DataTable({
+                ajax: {
+                    url: "/api/employees/",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data: "id"
+                    },
+                    {
+                        data: "lastName"                        
+                    },
+                    {
+                        data: "firstName"                        
+                    },
+                    {
+                        data: "dateOfBirth",
+                        render: function (data, type, row) {
+                            if (data === null) 
+                                return data;
+                            
+                            else {
+                                var dateSplit = data.split('T');
+
+                                var temp = dateSplit[0];
+
+                                var dateSplit2 = temp.split('-');
+
+                                return type === "display" || type === "filter" ?
+                                    dateSplit2[2] + '/' + dateSplit2[1] + '/' + dateSplit2[0] :
+                                    data;
+                            }
+                                
+                        }
+                    },
+                    {
+                        data: "title"
+                    }              
+                ]
+            });           
+        });
+    </script>
+}
+
